@@ -16,7 +16,7 @@ const FeaturedRow = ({ title, restaurants, description }) => {
         </TouchableOpacity>
       </View>
       {/* Restaurants */}
-      <ScrollView horizontal className="overflow-visible px-5 mb-5"
+      <ScrollView horizontal className="overflow-visible px-5 pb-5"
       showsHorizontalScrollIndicator={false}
       >
         {restaurants.map((restaurant, i) => {

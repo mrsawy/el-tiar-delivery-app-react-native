@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, ScrollView } from "react-native";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SafeAreaViewComponent from "../components/HigherOrderComponents/SafeAreaViewComponent";
@@ -29,21 +29,30 @@ const HomeScreen = () => {
             <Icon.Sliders height="20" width="20" stroke="white" />
           </View>
         </View>
-        {/* categories */}
-        <Categories />
-        {/* features */}
-        <View className="mt-5">
-          {[featured, featured, featured].map((featured, index) => {
-            return (
-              <FeaturedRow
-                key={index}
-                title={featured.title}
-                description={featured.description}
-                restaurants={featured.restaurants}
-              />
-            );
-          })}
-        </View>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingBottom: 50,
+          }}
+          className="mb-5"
+        >
+          {/* categories */}
+          <Categories />
+          {/* features */}
+          <View className="mt-5">
+            {[featured, featured, featured].map((featured, index) => {
+              return (
+                <FeaturedRow
+                  key={index}
+                  title={featured.title}
+                  description={featured.description}
+                  restaurants={featured.restaurants}
+                />
+              );
+            })}
+          </View>
+        <View className="h-16" ></View>
+        </ScrollView>
       </View>
     </SafeAreaViewComponent>
   );
